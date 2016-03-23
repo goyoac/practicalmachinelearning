@@ -1,4 +1,4 @@
-# Nedded libraries
+# Needed packages
 
 install.packages("ggplot2", repos = "https://mran.revolutionanalytics.com/snapshot/2016-03-19")
 install.packages("caret", repos = "https://mran.revolutionanalytics.com/snapshot/2016-03-19")
