@@ -53,18 +53,12 @@ pmlTraining.cleaned.validationSet <- pmlTraining.cleaned[-toTrain, ]
 pmlModelRandomForest <- train(classe ~ .,
                               data          = pmlTraining.cleaned.trainSet,
                               method        = "rf",
-                              trControl     = trainControl(method="cv", number=5),
-                              prox          = TRUE,
-                              ntree         = 250
-                             )
-
-pmlModelRandomForest <- train(classe ~ .,
-                              data          = pmlTraining.cleaned.trainSet,
-                              method        = "rf",
                               trControl     = trainControl(method="cv", number=5)
 )
 
 validationPredictRandomForest <- predict(pmlModelRandomForest, pmlTraining.cleaned.validationSet)
 confMatrixRndomForest <- confusionMatrix(pmlTraining.cleaned.validationSet$classe, validationPredictRandomForest)
+
+# Testing
 
 testPredictRandomForest <- predict(pmlModelRandomForest, pmlTesting.cleaned)
