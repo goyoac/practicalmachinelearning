@@ -26,28 +26,8 @@ First of all, as usual, we load the R packages needed for the code and then down
 
 library(ggplot2)
 library(caret)
-```
-
-```
-## Loading required package: lattice
-```
-
-```r
 library(randomForest)
-```
 
-```
-## randomForest 4.6-12
-## Type rfNews() to see new features/changes/bug fixes.
-## 
-## Attaching package: 'randomForest'
-## 
-## The following object is masked from 'package:ggplot2':
-## 
-##     margin
-```
-
-```r
 # Loading data
 
 pmlTrainingFile <- "pml-training.csv"
@@ -72,7 +52,7 @@ Training data has 19622 rows of 160 variables, while testing data has only 20 ro
 
 ## Preparing data
 
-We remove variables with missing or empty values and, after that, we remove unnecessary variables (predictors) getting a final set of 53 predictors. 
+We remove variables with missing or empty values and, after that, we remove unnecessary variables (predictors) getting a final set of 53 variables. 
 
 Finally, we split the training data set into train data and validation data with a rate of 70:30. The validation data let us to compute the out-of-sample error. 
 
