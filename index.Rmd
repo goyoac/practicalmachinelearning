@@ -97,6 +97,9 @@ We test the model on the validation dataset and get the confusion matrix.
 validationPredictRandomForest <- predict(pmlModelRandomForest, pmlTraining.cleaned.validationSet)
 confMatrixRndomForest <- confusionMatrix(pmlTraining.cleaned.validationSet$classe, validationPredictRandomForest)
 confMatrixRndomForest
+
+outOfSampleError <- sum(validationPredictRandomForest != pmlTraining.cleaned.validationSet$classe)/ nrow(pmlTraining.cleaned.validationSet)
+outOfSampleError
 ```
 The estimated accuracy of the model on the validation dataset is `r round(confMatrixRndomForest$overall[1]*100, 2)` % and the estimated out of sample error is `r round (sum(validationPredictRandomForest != pmlTraining.cleaned.validationSet$classe) * 100 / nrow(pmlTraining.cleaned.validationSet),2)`%.
 

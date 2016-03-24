@@ -240,6 +240,9 @@ confMatrixRndomForest</code></pre>
 ## Detection Rate         0.2845   0.1918   0.1725   0.1606   0.1835
 ## Detection Prevalence   0.2845   0.1935   0.1743   0.1638   0.1839
 ## Balanced Accuracy      0.9985   0.9950   0.9873   0.9960   0.9998</code></pre>
+<pre class="r"><code>outOfSampleError &lt;- sum(validationPredictRandomForest != pmlTraining.cleaned.validationSet$classe)/ nrow(pmlTraining.cleaned.validationSet)
+outOfSampleError</code></pre>
+<pre><code>## [1] 0.007136788</code></pre>
 <p>The estimated accuracy of the model on the validation dataset is 99.29 % and the estimated out of sample error is 0.71%.</p>
 </div>
 <div id="testing" class="section level2">
