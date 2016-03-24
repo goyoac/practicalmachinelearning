@@ -32,7 +32,6 @@ pmlTesting  <- read.csv(pmlTestFile,     na.strings = c("", "NA", "#DIV/0!"))
 # Preparing data
 
 ## Removing variables with NAs or empty
-#pmlTraining.cleaned <- pmlTraining[, -which(sapply(pmlTraining, function(x) any(is.na(x)) || any(x=="")))]
 pmlTraining.cleaned <- pmlTraining [, colSums(is.na(pmlTraining)) == 0]
 pmlTesting.cleaned  <- pmlTesting  [, colSums(is.na(pmlTesting))  == 0]
 
@@ -58,6 +57,10 @@ pmlModelRandomForest <- train(classe ~ .,
 
 validationPredictRandomForest <- predict(pmlModelRandomForest, pmlTraining.cleaned.validationSet)
 confMatrixRndomForest <- confusionMatrix(pmlTraining.cleaned.validationSet$classe, validationPredictRandomForest)
+
+# Plotting
+plot(varImp(pmlModelRandomForest), main = "Top 10 predictors", top = 10)
+plot(pmlModelRandomForest, main="Model accuracy by predictors")
 
 # Testing
 
